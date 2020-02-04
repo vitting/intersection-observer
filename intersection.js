@@ -6,14 +6,20 @@ const options = {
     threshold: 0
 };
 
-const observer = new IntersectionObserver((entries, observer) => {
+const io = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
         let value = "";
+        const itemNumber = entry.target.dataset.item;
         if (entry.isIntersecting) {
-            value = "Section" + entry.target.getAttribute("data-item") + ": Bliver vist";
+            value = "Section" + itemNumber + ": Bliver vist";
             console.log(value);
+            if (!entry.target.classList.contains("fadein")) {
+                entry.target.classList.add("fadein");   
+                // Unsubscribe after fade in
+                // observer.unobserve(entry.target);
+            }
         } else {
-            value = "Section" + entry.target.getAttribute("data-item") + ": Bliver ikke vist";
+            value = "Section" + itemNumber + ": Bliver ikke vist";
             console.log(value);
         }
 
@@ -24,5 +30,5 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, options);
 
 sections.forEach((value) => {
-    observer.observe(value);
+    io.observe(value);
 });

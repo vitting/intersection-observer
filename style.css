@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-body  {
+body {
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
 }
@@ -16,8 +16,9 @@ body  {
     background-color: #000;
     position: fixed;
     padding: 20px;
+    opacity: 0.6;
     top: 0px;
-    left: 0px;
+    right: 0px;
     z-index: 100;
     max-height: 400px;
     width: 240px;
@@ -26,6 +27,77 @@ body  {
 
 .info-body {
     overflow: auto;
+}
+
+nav {
+    color: black;
+    position: relative;
+}
+
+ul {
+    list-style: none;
+}
+
+nav>ul {
+    display: flex;
+    
+
+}
+
+nav>ul li a {
+    display: inline-block;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.submenu {
+    display: none;
+    list-style: none;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.submenu ul {
+    display: inline-block;
+}
+
+.submenu li {
+    padding: 10px 10px;
+    position: relative;
+    /* display: inline-block; */
+}
+
+.submenu li:hover {
+    /* background-color: burlywood; */
+}
+
+.submenu ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transition: transform 150ms ease-in;
+    background-color: red;
+}
+
+nav > ul li:hover a {
+    background-color: burlywood;
+}
+
+nav > ul li:hover .submenu {
+    display: block;
+}
+
+.submenu li:hover::after {
+    transform: scaleX(1);
 }
 
 .section {
@@ -47,10 +119,13 @@ body  {
     background-position: center;
 }
 
-.section2, .section3, .section4, .section5 {
+.section2,
+.section3,
+.section4,
+.section5 {
     padding: 20px;
     width: 100%;
-    min-height:600px;
+    min-height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,6 +144,16 @@ body  {
 
 .section3 {
     background-color: lightblue;
+    
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+}
+
+.fadein {
+    opacity: 1;
 }
 
 .section4 {
@@ -78,4 +163,3 @@ body  {
 .section5 {
     background-color: palegoldenrod;
 }
-
