@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --text-color-inverse: #000;
+    --text-color: #fff;
+    --menu-underline-color: red;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #fff;
@@ -13,7 +19,7 @@ body {
 
 .info {
     color: #fff;
-    background-color: #000;
+    background-color: black;
     position: fixed;
     padding: 20px;
     opacity: 0.6;
@@ -30,7 +36,7 @@ body {
 }
 
 nav {
-    color: black;
+    color: var(--text-color-inverse);
     position: relative;
 }
 
@@ -48,7 +54,7 @@ nav>ul li a {
     display: inline-block;
     padding: 20px;
     text-decoration: none;
-    color: black;
+    color: var(--text-color-inverse);
 }
 
 .submenu {
@@ -69,11 +75,7 @@ nav>ul li a {
 .submenu li {
     padding: 10px 10px;
     position: relative;
-    /* display: inline-block; */
-}
-
-.submenu li:hover {
-    /* background-color: burlywood; */
+    cursor: pointer;
 }
 
 .submenu ul li::after {
@@ -85,7 +87,7 @@ nav>ul li a {
     height: 2px;
     transform: scaleX(0);
     transition: transform 150ms ease-in;
-    background-color: red;
+    background-color: var(--menu-underline-color);
 }
 
 nav > ul li:hover a {
@@ -122,7 +124,8 @@ nav > ul li:hover .submenu {
 .section2,
 .section3,
 .section4,
-.section5 {
+.section5,
+.section6 {
     padding: 20px;
     width: 100%;
     min-height: 600px;
@@ -143,8 +146,7 @@ nav > ul li:hover .submenu {
 }
 
 .section3 {
-    background-color: lightblue;
-    
+    background-color: lightblue;   
 }
 
 .fade {
@@ -163,3 +165,7 @@ nav > ul li:hover .submenu {
 .section5 {
     background-color: palegoldenrod;
 }
+
+.section6 {
+    background-color: green;
+}  
